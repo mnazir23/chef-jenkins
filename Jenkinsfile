@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Download Cookbook') {
             steps {
-                url: 'https://github.com/mnazir23/chef-repo.git'
+                git branch: 'master', url: 'https://github.com/mnazir23/chef-repo.git'
             }
         }
         stage('Upload Cookbook to Chef Server, Converge Nodes') {
