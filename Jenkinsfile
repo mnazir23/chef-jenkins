@@ -27,6 +27,7 @@ pipeline {
         stage('Upload Cookbook to Chef Server, Converge Nodes') {
             steps {
                 withCredentials([zip(credentialsId: 'chef-server-creds', variable: 'CHEFREPO')]) {
+                    sh "echo $CHEFREPO/chef-repo/"
                     sh "mkdir -p $CHEFREPO/chef-repo/"
                     sh "sudo rm -rf $WORKSPACE/Berksfile.lock"
                     sh "mv $WORKSPACE/* $CHEFREPO/chef-repo/"
