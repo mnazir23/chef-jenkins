@@ -29,7 +29,7 @@ pipeline {
                 withCredentials([zip(credentialsId: 'chef-server-creds', variable: 'CHEFREPO')]) {
                     sh "mkdir -p $CHEFREPO/chef-repo/"
                     sh "sudo rm -rf $WORKSPACE/Berksfile.lock"
-                    sh "mv $WORKSPACE/chef-repo/* $CHEFREPO/chef-repo/"
+                    sh "mv $WORKSPACE/* $CHEFREPO/chef-repo/"
                     sh "knife cookbook upload apache --force -o $CHEFREPO/chef-repo/cookbooks -c $CHEFREPO/chef-repo/.chef/knife.rb"
                 }
             }
