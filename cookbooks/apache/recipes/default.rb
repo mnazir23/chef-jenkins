@@ -19,3 +19,5 @@ service 'httpd' do
   action [:start, :enable]
   subscribes :restart, 'template[/var/www/html/index.html]', :immediately
 end
+
+puts "hey is this working??"
